@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCraft</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.webp" type="favicon">
+    <script src="https://kit.fontawesome.com/20ec617d7b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>CodeCraft</h1>
+    <div class="container">
+        
+        <div class="left">
+            
+            <label><i class="fa-brands fa-html5"></i>HTML</label>
+            <textarea id="html-code" onkeyup="run()"></textarea>
+            <label><i class="fa-brands fa-css3-alt"></i>CSS</label>
+            <textarea id="css-code" onkeyup="run()"></textarea>
+            <label><i class="fa-brands fa-js"></i>JS</label>
+            <textarea id="js-code" onkeyup="run()"></textarea>
+        </div>
+        <div class="right">
+            <label><i class="fa-solid fa-play"></i>Output</label>
+            <iframe id="output"></iframe>
+        </div>
+    </div>
+    <footer>
+        <p>&copy;Sudhanshu Singh. All rights reserved.</p>
+    </footer>
+    <script>
+        function run(){
+            let htmlcode=document.getElementById("html-code").value;
+            let csscode=document.getElementById("css-code").value;
+            let jscode=document.getElementById("js-code").value;
+            let output=document.getElementById("output");
+            output.contentDocument.body.innerHTML=htmlcode + "<style>"+csscode+"</style>";
+            output.contentWindow.eval(jscode);
+        }
+    </script>
+</body>
+</html>
